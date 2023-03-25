@@ -22,7 +22,7 @@ function App() {
       <div className="information">
         <label>Name:</label>
         <input type="text" onChange= {(event) => { //we are creating an event (event) and passing a function =>
-          setName(event.target.value); //(event.taget.value) is the value in the "targetted" input box, which is connected to setName
+          setName(event.target.value); //(event.taget.value) is the value in the "targetted" input box, so the setName is picking up the value and placing it in the "name" variable above.
           }}
           />
         <label>City:</label>
