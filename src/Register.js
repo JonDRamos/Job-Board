@@ -1,18 +1,20 @@
 
 
 import './App.css';
-//do not forget to to import useState. If not important, each line that uses useState will receive and error -"'useState' is not defined  no-undef".
+//do not forget to to import useState. If not imported, each line that uses useState will receive an error -"'useState' is not defined  no-undef".
 import {useState} from "react";
 //Step 6b. - importing Axios below
 import Axios from 'axios';
 
 //note that the body of the default syntax was deleted within the function App() { , everything after "<div className="App">"
-function App() {
+function Register() {
   //(Step 2f. below) Create state for each input
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [position, setPosition] = useState("");
   const [experience, setExperience] = useState(0); // note that useState is the initial states, therefore "" = emtpry string & "0" is initially 0 in input
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
 
   //Step 6c. - creating a function to addUser (for when the input fields are entered)
@@ -21,7 +23,9 @@ function App() {
       name:name,  //These are objects with KEY:VALUE pairs. Left side = back end variable in 5c - req.body.name. Right side = the variable in the front end (above - [name, setName]) in the useState statement.
       city: city,
       position: position,
-      experience:experience,   
+      experience:experience,
+      username:username,
+      password:password,   
     }).then (() => {
       console.log("success");
     });
@@ -54,11 +58,22 @@ function App() {
           setExperience(event.target.value);
           }} 
           />
-        <button onClick = {addUser}> Submit</button> 
+          <label>Username:</label>
+        <input type="text"onChange= {(event) => { 
+          setUserName(event.target.value);
+          }} 
+          />
+          <label>Password:</label>
+        <input type="text"onChange= {(event) => { 
+          setPassword(event.target.value);
+          }} 
+          />
+          
+        <button onClick = {addUser}> Sign me up </button> 
         
       </div>
     </div>
   );
 }
 
-export default App; // pre-existing when react was installed
+export default Register; // pre-existing when react was installed
